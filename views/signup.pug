@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1= "AuthApp - SignUp"
+  h3= alerts
+  form(action="/signup", method="post")
+    label(for="username") Username 
+    input(type="text", name="username")
+    br
+    br
+    label(for="password") Password 
+    input(type="password", name="password")
+    br
+    br
+    label(for="password_verify") Verify Password 
+    input(type="password", name="password_verify")
+    br
+    br
+    input(type="submit", value="SignUp")

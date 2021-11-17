@@ -1,0 +1,13 @@
+doctype html
+html
+  head
+    title= "AuthApp"
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    a(href="/") Home 
+    if session.username
+      a(href="/users/logout") Logout
+    else
+      a(href="/users/login") Login 
+      a(href="/signup") Signup 
+    block content

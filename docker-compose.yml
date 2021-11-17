@@ -1,0 +1,24 @@
+version: '3.4'
+
+services:
+  authapp:
+    image: node:lts-alpine
+    container_name: authapp
+    working_dir: /usr/src/app
+    volumes:
+      - ./:/usr/src/app
+    depends_on:
+      - database
+    ports:
+      - 3000:3000
+    stdin_open: true
+    tty: true
+
+  database:
+    image: mongo:latest
+    container_name: authapp_db
+    restart: unless-stopped
+    volumes:
+      - /tmp/data-db:/data/db
+    ports:
+      - 27017:27017
